@@ -61,19 +61,11 @@ public class Clock extends javax.swing.JFrame
 	int time_run =0;
 	public Clock() 
 	{
-		initialize();
-		new Thread() 
-		{
-			public void run()
-			{
-				while(time_run == 0)
-				{
-					//time_zone.setText(time_Ethiopia());
-				}
-			}
-		}.start();	
+		initialize();		
 	}
 	
+	
+	// displays current time in Ethiopia
 	public void time_Ethiopia()
 	{
 		Calendar cal = new GregorianCalendar();
@@ -86,19 +78,16 @@ public class Clock extends javax.swing.JFrame
 		String string = format.format(new_time);
 		
 		
-		String day_time = "";
+		String day_time = "AM";
 		if(AM_PM == 1)
 		{
 			day_time = "PM";
-		}
-		else
-		{
-			day_time = "AM";
 		}
 		
 		time_zone.setText(string + " "+ day_time);
 	}
 	
+	// displays current time in America/New_York
 	public void time_America()
 	{
 		Calendar cal = new GregorianCalendar();
@@ -118,6 +107,7 @@ public class Clock extends javax.swing.JFrame
 		time_zone.setText(time + " "+ day_time);
 	}
 
+	// displays current time in China/shanghai
 	public void time_China()
 	{
 		Calendar cal = new GregorianCalendar();
@@ -129,19 +119,17 @@ public class Clock extends javax.swing.JFrame
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm:ss");
 		String string = format.format(new_time);
 		
-		String day_time = "";
+		String day_time = "AM";
 		if(AM_PM == 1)
 		{
 			day_time = "PM";
 		}
-		else
-		{
-			day_time = "AM";
-		}
 		
 		time_zone.setText(string + " "+ day_time);
 	}
-	public void time_Engaland()
+	
+	// displays current time in England /London
+	public void time_England()
 	{
 		Calendar cal = new GregorianCalendar();
 		int AM_PM = cal.get(Calendar.AM_PM);
@@ -152,14 +140,10 @@ public class Clock extends javax.swing.JFrame
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm:ss");
 		String string = format.format(new_time);
 		
-		String day_time = "";
+		String day_time = "AM";
 		if(AM_PM == 1)
 		{
 			day_time = "PM";
-		}
-		else
-		{
-			day_time = "AM";
 		}
 		
 		time_zone.setText(string + " "+ day_time);
@@ -222,15 +206,15 @@ public class Clock extends javax.swing.JFrame
 							}
 							else if(comboBox.getSelectedItem().toString().equals("England"))
 							{
-								time_Engaland();
+								time_England();
 							}
 							else if(comboBox.getSelectedItem().toString().equals("England"))
 							{
-								time_Engaland();
+								time_England();
 							}
-							else if(comboBox.getSelectedItem().toString().equals("Choose"))
+							else if(comboBox.getSelectedItem().toString().equals("Choose")) 
 							{
-								//time_Engaland();
+								// does nothing
 							}
 							
 						}
